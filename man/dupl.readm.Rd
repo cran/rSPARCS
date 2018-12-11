@@ -1,7 +1,7 @@
 \name{dupl.readm}
 \alias{dupl.readm}
 \title{Identify Duplicates and Re-admissions}
-\description{Identify the duplicates and re-admissions in the SPARCS or other research data with subject identifications.}
+\description{Identify the duplicates and re-admissions in hospital data with subject identifications.}
 \usage{dupl.readm(data,UniqueID,date,period)}
 \arguments{
   \item{data}{a data.frame containing "UniqueID" and "date"}
@@ -9,9 +9,9 @@
   \item{date}{the name of the variable in the data indicating the admission/onset date.}
   \item{period}{the time period used to define an re-admission; period=365 by default.}
 }
-\details{Not limited to the SPARCS, but also applicable to other research data with "UniqueID" and "date".}
+\details{Not limited to hospital data, but also applicable to other surveillance data with "UniqueID" and "date".}
 \value{
-  \item{id.dupl}{indicating whether it is a duplicated record with exactly the same "UniqueID" and "date" as a previous record. In the SPARCS data,some patients may be reported twice or even more due to insurance issues. For most studies, researchers may remove this kind of duplicates to avoid potential overcounting problems.}
+  \item{id.dupl}{indicating whether it is a duplicated record with exactly the same "UniqueID" and "date" as a previous record. In some hospital data,some patients may be reported twice or even more due to insurance issues. For most studies, researchers may remove this kind of duplicates to avoid potential overcounting problems.}
   \item{onlyone}{indicating whether this is the only record with this ID.}
   \item{Period}{the time period between the current visit and the previous one for a patient; 0 for the 1st visit; and NA for those with only one record.}
   \item{Nadmission}{indicating the times of admission, e.g. 1st, 2nd admission; a patient may have more than one 1st admissions if some periods between two visits are greater than e.g. 365 days.}

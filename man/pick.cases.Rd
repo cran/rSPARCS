@@ -11,7 +11,7 @@
   \item{lat.sites}{a numeric vector containing the latitude of sites.}
   \item{radius}{radius of the buffer, e.g."15 miles", "20 kms".}
 }
-\details{Not limited to the SPARCS, but also applicable to other research data.}
+\details{Not limited to hospital data, but also applicable to other surveillance data.}
 \value{
   \item{which.site}{the closest site to the case.}
   \item{minDIST}{the distance of the case to the closest site; in the same unit as "radius".}

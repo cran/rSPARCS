@@ -13,7 +13,7 @@ case.series(data,ICD,diagnosis,date,start,end,by1,by2,by3,by4,by5)
   \item{start,end}{the start and end date for the case series to be generated.}
   \item{by1,by2,by3,by4,by5}{the name of the variable in the data used as grouping variables.}
 }
-\details{Not limited for the SPARCS, but also applicable to other hospital admission data.}
+\details{Not limited to hospital data, but also applicable to other surveillance data.}
 \value{
   \item{dataset}{A case series will be generated for time series analysis, trend analysis and displaying, with following variables:}
   \item{date}{from the start date to the end date as user specified, with 1 day bin.}

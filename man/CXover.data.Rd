@@ -4,12 +4,12 @@
 \description{Generate the dataset for case crossover analysis.}
 \usage{CXover.data(data,date,ID,direction)}
 \arguments{
-  \item{data}{a data.frame containing the date of each case reported to the SPARCS}
+  \item{data}{a data.frame containing the date of each case.}
   \item{date}{the name of the variable in the data indicating the date of each case reported to the database.}
   \item{ID}{the name of the variable in the data indicating case ID, if not specified, it will automatically generated starting from 1.}
   \item{direction}{"pre4"or"month4". With "pre4", each case day will be matched with same weekdays in previous 4 weeks. With "month4", each case day will be matched with same weekdays in the same month.}
 }
-\details{Not limited to the SPARCS, but also applicable to other hospital admission data.}
+\details{Not limited to hospital data, but also applicable to other surveillance data.}
 \value{
   \item{dataset}{A data.frame ready for the case crossover analysis, with following variables:}
   \item{ID}{same ID represents the same patient.}

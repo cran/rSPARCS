@@ -22,5 +22,5 @@ datatest=data.frame(county=c("Albany","Albany","Albany"),
                 zip=12206
                 )
 DBFgeocode(data=datatest,cityname="county",roadaddress="address1",
-mailbox="address2",ZIP="zip",output="rSPARCSdat.csv")
+mailbox="address2",ZIP="zip",output="data_output.csv")
 }
