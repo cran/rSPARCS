@@ -8,7 +8,7 @@ desc.comp <-function(data,variables,by=NULL,margin=2,avg.num="mean",test.num="me
     data_med=data.frame(a=data0[,i],group=group)
     names(data_med)[1]=names(data0)[i]
     if(is.numeric(data0[,i])|is.integer(data0[,i])){
-      result=matrix(rep(0,1*(length(level)+2)),nrow=1)
+      result=matrix(rep(NA,1*(length(level)+2)),nrow=1)
       mean.in=sprintf("%.2f",tapply(data_med[,1],data_med[,2],mean,na.rm=T))
       sd.in=sprintf("%.2f",tapply(data_med[,1],data_med[,2],sd,na.rm=T))
       median.in=sprintf("%.2f",tapply(data_med[,1],data_med[,2],median,na.rm=T))
@@ -22,7 +22,7 @@ desc.comp <-function(data,variables,by=NULL,margin=2,avg.num="mean",test.num="me
       if(max(shapiro)>=0.05) result[1,1:length(level)]=paste(mean.in," (",sd.in,")",sep="")  else result[1,1:length(level)]=paste(median.in," (",IQR.in,")",sep="")
       if(avg.num=="mean") result[1,1:length(level)]=paste(mean.in," (",sd.in,")",sep="")
       if(avg.num=="median") result[1,1:length(level)]=paste(median.in," (",IQR.in,")",sep="")
-
+      result[,(ncol(result)-1):ncol(result)]=""
       if((max(shapiro)>=0.05&test.num!="nonmetric")|test.num=="metric"){
         if(length(level)==2){
           result[1,ncol(result)-1]=paste("t =",sprintf("%.2f",t.test(data_med[,1]~data_med[,2],var.equal=T)$statistic))
@@ -36,7 +36,7 @@ desc.comp <-function(data,variables,by=NULL,margin=2,avg.num="mean",test.num="me
           test=ifelse(test<0.001,"P<0.001",sprintf("%.3f",test))
           result[1,ncol(result)]=test
         }
-
+        
       } else{
         if(length(level)==2){
           result[1,ncol(result)-1]=paste("W =",sprintf("%.2f",wilcox.test(data_med[,1]~data_med[,2],exact=F)$statistic))
@@ -54,7 +54,7 @@ desc.comp <-function(data,variables,by=NULL,margin=2,avg.num="mean",test.num="me
       rownames(result)=names(data0)[i]
       colnames(result)=c(level,"statistic","P")
     } else {
-      result=matrix(rep(0,(length(levels(data_med[,1]))+1)*(length(level)+2)),nrow=length(levels(data_med[,1]))+1)
+      result=matrix(rep(NA,(length(levels(data_med[,1]))+1)*(length(level)+2)),nrow=length(levels(data_med[,1]))+1)
       media=table(data_med[,1],data_med$group)
       media1=round(prop.table(media,margin)*100,2)
       media=as.data.frame.matrix(media)
@@ -66,11 +66,13 @@ desc.comp <-function(data,variables,by=NULL,margin=2,avg.num="mean",test.num="me
       result[1,]=""
       result[,(ncol(result)-1):ncol(result)]=""
       set.seed(4715)
-      result[2,ncol(result)-1]=paste("Chisq =",sprintf("%.2f",chisq.test(as.matrix(media),simulate.p.value=T)$statistic))
-      set.seed(4715)
-      test=chisq.test(as.matrix(media),simulate.p.value=T)$p.value
-      test=ifelse(test<0.001,"P<0.001",sprintf("%.3f",test))
-      result[2,ncol(result)]=test
+      if(length(level)>1){
+        result[2,ncol(result)-1]=paste("Chisq =",sprintf("%.2f",chisq.test(as.matrix(media),simulate.p.value=T)$statistic))
+        set.seed(4715)
+        test=chisq.test(as.matrix(media),simulate.p.value=T)$p.value
+        test=ifelse(test<0.001,"P<0.001",sprintf("%.3f",test))
+        result[2,ncol(result)]=test
+      }
       rownames(result)=c(names(data0)[i],rownames(media))
       colnames(result)=c(level,"statistic","P")
     }
@@ -79,5 +81,3 @@ desc.comp <-function(data,variables,by=NULL,margin=2,avg.num="mean",test.num="me
   }
   return(Output)
 }
-
-

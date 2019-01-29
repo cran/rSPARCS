@@ -1,12 +1,13 @@
-16776f82c445ddc514395a79ba6303c9 *DESCRIPTION
-8927c120eaece26e6d1cbe26de42eccb *NAMESPACE
+804caea7ab849300fd6593adbc86c2b7 *DESCRIPTION
+4adb2b4fbf1a35bacfa745fd0c8d58d7 *NAMESPACE
 4db45197f2a5182d3b17a4b132879f5d *R/CXover.data.R
 8b16ea8364b938775656e504a8db1e3e *R/DBFgeocode.R
 284056b5ab71b75ddd7420f09e6d91cf *R/FIPS.name.R
 ab216426bc16c71407a1ab610681ce5a *R/case.series.R
-bb1f81674e0697a39ec3dfa46083eb0a *R/desc.comp.R
+2e161de538e77d27ffe30eb34821278d *R/desc.comp.R
 0ad93862fdb1744d2a96ee6e2cae2e85 *R/dupl.readm.R
 ebfee48932401739b07fb0bc2e862341 *R/pick.cases.R
+9c36851e2d19505224c38383b214d726 *R/raster_extract.R
 b44de1dbcae35d27e6d2b507737cd2c7 *man/CXover.data.Rd
 63fd428d52e7e506d33de563c670438e *man/DBFgeocode.Rd
 cbd5632e948e8f24ff31d54b298d7abf *man/FIPS.name.Rd
@@ -14,3 +15,4 @@ cbd5632e948e8f24ff31d54b298d7abf *man/FIPS.name.Rd
 d55ad0b449e3eb41daa18d5e6ef3116e *man/desc.comp.Rd
 4009cbd66cbf6593cc938c954f2c8c32 *man/dupl.readm.Rd
 5dc0e3ba22311779a46f89d380e748e1 *man/pick.cases.Rd
+5b974a7f23c47e6042083c5da98705d6 *man/raster_extract.Rd
