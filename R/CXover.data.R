@@ -1,4 +1,5 @@
 CXover.data=function(data,date,ID=NULL,direction="pre4"){
+  name=names(data)
   if(length(ID)==0) data$ID=1:nrow(data) else data$ID=factor(data[,ID],levels=unique(data[,ID]))
   test=as.character(data[,date])
   test=test[test!=""&!is.na(test)]
@@ -19,7 +20,6 @@ CXover.data=function(data,date,ID=NULL,direction="pre4"){
   data$date6_1=substr(data$date6,6,7)
   data$date7_1=substr(data$date7,6,7)
   data$date8_1=substr(data$date8,6,7)
-
   if(direction=="pre4") data$date5=data$date6=data$date7=data$date8=NA
   if(direction=="month4"){
     data$d1_1=substr(data$d1,6,7)
@@ -33,11 +33,11 @@ CXover.data=function(data,date,ID=NULL,direction="pre4"){
     data$date8=ifelse(data$date8_1==data$d1_1,data$date8,NA)
   }
   if(direction!="pre4"&direction!="month4") print("You may contact author (wzhang27@albany.edu) to add more options")
-  output=data[,c("ID","d1")]
+  output=data[,c("ID","d1",name)]
   names(output)[2]="Date"
   output$status=1
   for(j in 1:8){
-    test=data[,c("ID",paste("date",j,sep=""))]
+    test=data[,c("ID",paste("date",j,sep=""),name)]
     names(test)[2]="Date"
     test=test[which(!is.na(test$Date)),]
     if(nrow(test)>0){
