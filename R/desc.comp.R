@@ -6,6 +6,7 @@ desc.comp <-function(data,variables,by=NULL,margin=2,avg.num="mean",test.num="me
   Output=NULL
   for(i in 1:length(variables)){
     data_med=data.frame(a=data0[,i],group=group)
+	  data_med=data_med[!is.na(data_med$group)&data_med$group!="",]
     names(data_med)[1]=names(data0)[i]
     if(is.numeric(data0[,i])|is.integer(data0[,i])){
       result=matrix(rep(NA,1*(length(level)+2)),nrow=1)
@@ -36,7 +37,7 @@ desc.comp <-function(data,variables,by=NULL,margin=2,avg.num="mean",test.num="me
           test=ifelse(test<0.001,"P<0.001",sprintf("%.3f",test))
           result[1,ncol(result)]=test
         }
-        
+
       } else{
         if(length(level)==2){
           result[1,ncol(result)-1]=paste("W =",sprintf("%.2f",wilcox.test(data_med[,1]~data_med[,2],exact=F)$statistic))

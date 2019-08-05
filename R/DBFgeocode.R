@@ -1,4 +1,4 @@
-DBFgeocode <- function(data,cityname,roadaddress,mailbox=NULL,ZIP,output="data.csv"){  
+DBFgeocode <- function(data,cityname,roadaddress,mailbox=NULL,ZIP){  
   if(length(mailbox)==0) {
     addr12=data[,roadaddress]
   } else{
@@ -8,7 +8,7 @@ DBFgeocode <- function(data,cityname,roadaddress,mailbox=NULL,ZIP,output="data.c
   }
   cityzip=paste(data[,cityname],data[,ZIP])
   data$singleline=paste(addr12,", ",cityzip,sep="")
-  write.dbf(data,output,factor2char = TRUE)
-  print(paste("A dbf file has been written to ", getwd()," for geocoding",sep=""))
+  return(data)
+  print("You may output the data as the dbf file using write.dbf ()")
 }
 

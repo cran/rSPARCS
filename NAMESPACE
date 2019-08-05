@@ -1,5 +1,4 @@
 exportPattern("^[[:alpha:]]+")
-importFrom("foreign","write.dbf")
 importFrom("data.table","as.data.table")
 importFrom("geosphere","distGeo")
 importFrom("tigris","tracts")
