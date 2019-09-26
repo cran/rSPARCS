@@ -1,4 +1,4 @@
-FIPS.name<-function(data,ID.case,long.case,lat.case,map=NULL,state.map,level.map,areaID="GEOID"){
+FIPS.name<-function(data,ID.case,long.case,lat.case,map=NULL,state.map,level.map=NULL,areaID="GEOID"){
   name=names(data)
   data$ID=data[,ID.case]
   data$long.case=data[,long.case]
