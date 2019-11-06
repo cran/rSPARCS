@@ -1,11 +1,12 @@
-4afe55dcfeed0a105a7eaf702a8d63a0 *DESCRIPTION
-d139528ba641de2feb303a627efe7f27 *NAMESPACE
+ceca8fcf826be6cb6e71c58dc7f41e64 *DESCRIPTION
+7fab5dacbcfdafd1c826ac1e1602cfd1 *NAMESPACE
 13f2d2c5342634658764c01e0c7182d5 *R/CXover.data.R
 ec506cc6ec38b021541e24ea28c2d779 *R/DBFgeocode.R
-66553b0b6a42f4bdf2bba95f8ef7fdb1 *R/FIPS.name.R
+0b30da704f908b452c6df3f0a47ae00d *R/FIPS.name.R
 ab216426bc16c71407a1ab610681ce5a *R/case.series.R
 90f75890fc9bf8a732db1cedc5f1b978 *R/desc.comp.R
 0ad93862fdb1744d2a96ee6e2cae2e85 *R/dupl.readm.R
+57ad157b748a96f666592f99f952a0b1 *R/mediationking.R
 ebfee48932401739b07fb0bc2e862341 *R/pick.cases.R
 9c36851e2d19505224c38383b214d726 *R/raster_extract.R
 b44de1dbcae35d27e6d2b507737cd2c7 *man/CXover.data.Rd
@@ -14,5 +15,6 @@ d9b501f6c9f77bfdcde482dfbece54f0 *man/FIPS.name.Rd
 01f074bdab28ca2eb634ed0f5a6008c6 *man/case.series.Rd
 d55ad0b449e3eb41daa18d5e6ef3116e *man/desc.comp.Rd
 4009cbd66cbf6593cc938c954f2c8c32 *man/dupl.readm.Rd
+be9336e4ae1312de123a8bd20d8bf21a *man/mediationking.Rd
 5dc0e3ba22311779a46f89d380e748e1 *man/pick.cases.Rd
 5b974a7f23c47e6042083c5da98705d6 *man/raster_extract.Rd
