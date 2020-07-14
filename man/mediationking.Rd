@@ -22,9 +22,10 @@
 Bo Ye (bye2@albany.edu)
 }
 \examples{
-exposure<-rnorm(1000,0,1)
-mediator<-rnorm(1000,10,3)
-outcome<-rnorm(1000,10,4)
+set.seed(1)
+exposure<-rnorm(20,0,1)
+mediator<-rnorm(20,10,1)
+outcome<-rnorm(20,10,1)
 dataset<-data.frame(outcome,mediator,exposure)
 #mediationking(dataset,"outcome","mediator","exposure")
 }

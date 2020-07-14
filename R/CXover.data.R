@@ -1,4 +1,4 @@
-CXover.data=function(data,date,ID=NULL,direction="pre4"){
+CXover.data=function(data,date,ID=NULL,direction="month4"){
   name=names(data)
   if(length(ID)==0) data$ID=1:nrow(data) else data$ID=factor(data[,ID],levels=unique(data[,ID]))
   test=as.character(data[,date])
@@ -21,6 +21,7 @@ CXover.data=function(data,date,ID=NULL,direction="pre4"){
   data$date7_1=substr(data$date7,6,7)
   data$date8_1=substr(data$date8,6,7)
   if(direction=="pre4") data$date5=data$date6=data$date7=data$date8=NA
+  if(direction=="after4") data$date1=data$date2=data$date3=data$date4=NA
   if(direction=="month4"){
     data$d1_1=substr(data$d1,6,7)
     data$date1=ifelse(data$date1_1==data$d1_1,data$date1,NA)
@@ -32,7 +33,6 @@ CXover.data=function(data,date,ID=NULL,direction="pre4"){
     data$date7=ifelse(data$date7_1==data$d1_1,data$date7,NA)
     data$date8=ifelse(data$date8_1==data$d1_1,data$date8,NA)
   }
-  if(direction!="pre4"&direction!="month4") print("You may contact author (wzhang27@albany.edu) to add more options")
   output=data[,c("ID","d1",name)]
   names(output)[2]="Date"
   output$status=1

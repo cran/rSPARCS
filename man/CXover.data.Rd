@@ -7,7 +7,7 @@
   \item{data}{a data.frame containing the date of each case.}
   \item{date}{the name of the variable in the data indicating the date of each case reported to the database.}
   \item{ID}{the name of the variable in the data indicating case ID, if not specified, it will automatically generated starting from 1.}
-  \item{direction}{"pre4"or"month4". With "pre4", each case day will be matched with same weekdays in previous 4 weeks. With "month4", each case day will be matched with same weekdays in the same month.}
+  \item{direction}{"month4" (default),"pre4" or "after4". With "pre4" (or "after4"), each case day will be matched with same weekdays in previous (or subsequent) 4 weeks. With "month4", each case day will be matched with same weekdays in the same month, which is the most common in literature.}
 }
 \details{Not limited to hospital data, but also applicable to other surveillance data.}
 \value{
@@ -32,6 +32,6 @@ dataset=data.frame(
   sex=sample(c("M","F"),1000,replace=TRUE),
   county=sample(c("Albany","New York"),1000,replace=TRUE))
 
-out.data=CXover.data(data=dataset,date="onset",ID="patient",direction="pre4")
+out.data=CXover.data(data=dataset,date="onset",ID="patient",direction="month4")
 head(out.data)
 }

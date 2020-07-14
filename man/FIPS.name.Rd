@@ -22,8 +22,7 @@ Wang-Jian Zhang (wzhang27@albany.edu)
 }
 \examples{
 set.seed(2018)
-dataset=data.frame(Patient=1:10,lat=rnorm(10,42,0.5),long=rnorm(10,-76,1))
-#data.out=FIPS.name(data=dataset,ID.case="Patient",long.case="long",lat.case="lat",
-#state.map="36",level.map="tract",areaID="GEOID")
-#head(data.out)
+dataset=data.frame(Patient=1:2,lat=rnorm(2,42,0.5),long=rnorm(2,-76,1))
+#data.out=FIPS.name(data=dataset,ID.case="Patient",long.case="long",
+#lat.case="lat",state.map="36",level.map="tract",areaID="GEOID")
 }

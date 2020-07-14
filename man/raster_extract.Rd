@@ -19,19 +19,19 @@
 Wang-Jian Zhang (wzhang27@albany.edu)
 }
 \examples{
-#library(raster)
-#set.seed(4715)
-#rast=raster(matrix(rnorm(500),100,100))
-#extent(rast)=c(50,100,10,60)
-#crs(rast)=CRS("+proj=longlat +datum=WGS84")
+library(raster)
+set.seed(4715)
+rast=raster(matrix(rnorm(500),100,100))
+extent(rast)=c(50,100,10,60)
+crs(rast)=CRS("+proj=longlat +datum=WGS84")
 
-#ref=cbind(x=c(60,80,80,70), y=c(20,25,40,30))
-#p=Polygon(ref)
-#ps=Polygons(list(p),ID="ID")
-#ref=SpatialPolygons(list(ps))
-#data=data.frame(value=1, ID="10086",row.names="ID")
-#ref=SpatialPolygonsDataFrame(ref,data)
-#proj4string(ref)=CRS("+proj=longlat +datum=WGS84")
+ref=cbind(x=c(60,80,80,70), y=c(20,25,40,30))
+p=Polygon(ref)
+ps=Polygons(list(p),ID="ID")
+ref=SpatialPolygons(list(ps))
+data=data.frame(value=1, ID="10086",row.names="ID")
+ref=SpatialPolygonsDataFrame(ref,data)
+proj4string(ref)=CRS("+proj=longlat +datum=WGS84")
 
-#raster_extract(rastermap=rast,refmap=SPDF,ID.var="ID",ID.code="ALL",cutpoint=0.5)
+raster_extract(rastermap=rast,refmap=ref,ID.var="ID",ID.code="ALL",cutpoint=0.5)
 }
