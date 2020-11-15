@@ -2,12 +2,13 @@
 \alias{CXover.data}
 \title{Generate the Dataset for Case Crossover Analysis}
 \description{Generate the dataset for case crossover analysis.}
-\usage{CXover.data(data,date,ID,direction)}
+\usage{CXover.data(data,date,ID,direction,apart)}
 \arguments{
   \item{data}{a data.frame containing the date of each case.}
   \item{date}{the name of the variable in the data indicating the date of each case reported to the database.}
   \item{ID}{the name of the variable in the data indicating case ID, if not specified, it will automatically generated starting from 1.}
   \item{direction}{"month4" (default),"pre4" or "after4". With "pre4" (or "after4"), each case day will be matched with same weekdays in previous (or subsequent) 4 weeks. With "month4", each case day will be matched with same weekdays in the same month, which is the most common in literature.}
+  \item{apart}{7 (default) or 14. With apart==7, each case day will be 7 days apart from control days in the same month as in the traditional case-crossover design while with apart==14, days will be 14 days apart each other.}
 }
 \details{Not limited to hospital data, but also applicable to other surveillance data.}
 \value{
@@ -32,6 +33,6 @@ dataset=data.frame(
   sex=sample(c("M","F"),1000,replace=TRUE),
   county=sample(c("Albany","New York"),1000,replace=TRUE))
 
-out.data=CXover.data(data=dataset,date="onset",ID="patient",direction="month4")
+out.data=CXover.data(data=dataset,date="onset",ID="patient")
 head(out.data)
 }

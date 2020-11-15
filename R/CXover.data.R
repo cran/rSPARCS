@@ -1,4 +1,4 @@
-CXover.data=function(data,date,ID=NULL,direction="month4"){
+CXover.data=function(data,date,ID=NULL,direction="month4",apart=7){
   name=names(data)
   if(length(ID)==0) data$ID=1:nrow(data) else data$ID=factor(data[,ID],levels=unique(data[,ID]))
   test=as.character(data[,date])
@@ -33,6 +33,7 @@ CXover.data=function(data,date,ID=NULL,direction="month4"){
     data$date7=ifelse(data$date7_1==data$d1_1,data$date7,NA)
     data$date8=ifelse(data$date8_1==data$d1_1,data$date8,NA)
   }
+  if(apart==14) data$date2 = data$date4=data$date5 = data$date7=NA 
   output=data[,c("ID","d1",name)]
   names(output)[2]="Date"
   output$status=1
