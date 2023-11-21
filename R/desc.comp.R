@@ -17,7 +17,7 @@ desc.comp <-function(data,variables,by=NULL,margin=2,avg.num="mean",test.num="me
       test=NULL
       try({test=tapply(data_med[,1],data_med[,2],shapiro.test)},silent=T)
       shapiro=rep(0.5,length(level))
-      if(length(test)==0) print("Warning: The sample size for some groups may be too small") else {
+      if(length(test)==0) warning("The sample size for some groups may be too small") else {
         for(k in 1:length(test)) shapiro[k]=test[[k]]$p.value
       }
       if(max(shapiro)>=0.05) result[1,1:length(level)]=paste(mean.in," (",sd.in,")",sep="")  else result[1,1:length(level)]=paste(median.in," (",IQR.in,")",sep="")
@@ -55,6 +55,7 @@ desc.comp <-function(data,variables,by=NULL,margin=2,avg.num="mean",test.num="me
       rownames(result)=names(data0)[i]
       colnames(result)=c(level,"statistic","P")
     } else {
+      if(!is.factor(data_med[,1])) data_med[,1]=as.factor(data_med[,1])
       result=matrix(rep(NA,(length(levels(data_med[,1]))+1)*(length(level)+2)),nrow=length(levels(data_med[,1]))+1)
       media=table(data_med[,1],data_med$group)
       media1=round(prop.table(media,margin)*100,2)
@@ -66,10 +67,8 @@ desc.comp <-function(data,variables,by=NULL,margin=2,avg.num="mean",test.num="me
       }
       result[1,]=""
       result[,(ncol(result)-1):ncol(result)]=""
-      set.seed(4715)
       if(length(level)>1){
         result[2,ncol(result)-1]=paste("Chisq =",sprintf("%.2f",chisq.test(as.matrix(media),simulate.p.value=T)$statistic))
-        set.seed(4715)
         test=chisq.test(as.matrix(media),simulate.p.value=T)$p.value
         test=ifelse(test<0.001,"P<0.001",sprintf("%.3f",test))
         result[2,ncol(result)]=test
@@ -80,5 +79,10 @@ desc.comp <-function(data,variables,by=NULL,margin=2,avg.num="mean",test.num="me
     for(k in 1:ncol(result)) result[,k]=as.character(result[,k])
     Output=rbind(Output,result)
   }
+  test=dimnames(Output)[[1]]
+  Output=as.data.frame(Output)
+  Output$name=test
+  Output=Output[,c(ncol(Output),1:(ncol(Output)-1))]
+  if(length(by)==0){Output=Output[,1:2];names(Output)[2]="Overall"}
   return(Output)
 }

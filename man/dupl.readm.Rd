@@ -16,9 +16,6 @@
   \item{Period}{the time period between the current visit and the previous one for a patient; 0 for the 1st visit; and NA for those with only one record.}
   \item{Nadmission}{indicating the times of admission, e.g. 1st, 2nd admission; a patient may have more than one 1st admissions if some periods between two visits are greater than e.g. 365 days.}
 }
-\author{
-Wang-Jian Zhang (wzhang27@albany.edu)
-}
 \examples{
 dataset=data.frame(
   ID=c(1,3,4,2,4,6,3,5,7,1),

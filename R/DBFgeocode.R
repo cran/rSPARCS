@@ -9,6 +9,6 @@ DBFgeocode <- function(data,cityname,roadaddress,mailbox=NULL,ZIP){
   cityzip=paste(data[,cityname],data[,ZIP])
   data$singleline=paste(addr12,", ",cityzip,sep="")
   return(data)
-  print("You may output the data as the dbf file using write.dbf ()")
+  message("You may output the data as the dbf file using write.dbf ()")
 }
 

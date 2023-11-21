@@ -1,6 +1,6 @@
 raster_extract=function(rastermap,refmap,ID.var="FIPS",ID.code="ALL",cutpoint=NULL){
   message("Wait! It may take some time to uniform the projection systems of the rastermap and refmap")
-  refmap=spTransform(refmap,CRS(projection(rastermap)))
+  refmap=sp::spTransform(refmap,CRS(projection(rastermap)))
   areasnum=ifelse(ID.code=="ALL",length(refmap),length(ID.code))
   refmap1=as.data.frame(refmap)
   if(ID.code=="ALL") areasname=refmap1[,ID.var] else areasname=ID.code

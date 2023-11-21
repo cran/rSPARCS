@@ -20,9 +20,6 @@
 \references{
 Zhang W, Lin S, Hopke PK, et al. Triggering of cardiovascular hospital admissions by fine particle concentrations in New York state: Before, during, and after implementation of multiple environmental policies and a recession. Environ. Pollut. 2018;242:1404–1416.
 }
-\author{
-Wang-Jian Zhang (wzhang27@albany.edu)
-}
 \examples{
 # similated data
 set.seed(2018)

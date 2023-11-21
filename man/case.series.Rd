@@ -24,7 +24,6 @@ case.series(data,ICD,diagnosis,date,start,end,by1,by2,by3,by4,by5)
   When applied to other medical data without ICD code, users may arbitrarily set a ICD code, meanwhile, define the diagnosis variable in the data to the same ICD code.
 }
 \examples{
-# similated data
 set.seed(2018)
 
 data=data.frame(

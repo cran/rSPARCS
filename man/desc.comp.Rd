@@ -17,9 +17,6 @@ desc.comp(data,variables,by,margin,avg.num,test.num)
 \value{
 A comprehensive descriptive table with statistics and P value for intergroup comparisons.
 }
-\author{
-Wang-Jian Zhang (wzhang27@albany.edu)
-}
 \examples{
 desc.comp(CO2,variables=2:5,by=1,margin=1)
 }

@@ -15,9 +15,6 @@
   \item{ID.code}{the column indicating the unique ID for each area, followed by the number of cells for each category/colour within that area.}
   \item{Total cells}{the total number of cells within each area.}
 }
-\author{
-Wang-Jian Zhang (wzhang27@albany.edu)
-}
 \examples{
 library(raster)
 set.seed(4715)

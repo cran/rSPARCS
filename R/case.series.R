@@ -16,7 +16,7 @@ case.series <-function(data,ICD=NULL,diagnosis,date="ADMDT",start="2001/1/1",end
       a=paste(unique(data[,by[k]]))
       b=paste("Level for", by[k],":",a[1])
       for(t in 2:length(a)) b=paste(b,a[t])
-      print(b)
+      message(b)
       data$var.by=data[,by[k]]
       names(data)[ncol(data)]=paste("var",k,sep="")
     }
@@ -66,7 +66,7 @@ case.series <-function(data,ICD=NULL,diagnosis,date="ADMDT",start="2001/1/1",end
     Output1=NULL
     Output2=med
   }
-  print(Output1)
+  message(Output1)
   return(Output2)
 }
 

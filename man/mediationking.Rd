@@ -18,14 +18,12 @@
   \item{Meditation.proportion}{The proportion of the mediation effect.}
 
 }
-\author{
-Bo Ye (bye2@albany.edu)
-}
 \examples{
 set.seed(1)
 exposure<-rnorm(20,0,1)
 mediator<-rnorm(20,10,1)
 outcome<-rnorm(20,10,1)
 dataset<-data.frame(outcome,mediator,exposure)
-#mediationking(dataset,"outcome","mediator","exposure")
+\donttest{mediationking(dataset,"outcome","mediator","exposure")
+}
 }
